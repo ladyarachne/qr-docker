@@ -1,0 +1,13 @@
+services:
+  qr-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: qr-generator:latest
+    container_name: qr-generator
+    volumes:
+      - ./qr_codes:/app/qr_codes
+      - ./logs:/app/logs
+    command: ["--url", "http://github.com/ladyarachne"]
+    # If you want to override the default URL, uncomment and modify the following line:
+    # command: ["--url", "https://your-custom-url.com"]
